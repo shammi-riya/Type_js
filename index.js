@@ -1,26 +1,27 @@
-const type = document.querySelector(".type")
-console.log(type);
+const type = document.querySelector(".type");
 let typeNumber = 0;
 let typeText = type.innerHTML
-console.log(type.innerHTML.split(""));
+let textArr = type.innerHTML.split("");
 type.innerHTML = ""
-
-
 
 function typeJs() {
 
     if (typeNumber < typeText.length) {
         type.innerHTML += typeText.charAt(typeNumber)
         typeNumber++
-        console.log(typeNumber);
-    }
 
+    } else {
+        textArr.pop()
+        type.innerHTML = textArr.join("")
+        if (textArr == 0) {
+            typeNumber = 0
+
+        }
+    }
 
     console.log(typeNumber);
 }
 
-
-
 let stop = setInterval(() => {
     typeJs()
-}, 300)
+}, 350)
